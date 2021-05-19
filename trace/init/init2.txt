@@ -1,0 +1,33 @@
+# tracer: nop
+#
+#                              _-----=> irqs-off
+#                             / _----=> need-resched
+#                            | / _---=> hardirq/softirq
+#                            || / _--=> preempt-depth
+#                            ||| /     delay
+#           TASK-PID   CPU#  ||||    TIMESTAMP  FUNCTION
+#              | |       |   ||||       |         |
+         systemd-1     [000] ....     0.955136: bcm2835_mmc_probe: probe start
+         systemd-1     [000] ....     0.957313: bcm2835_mmc_probe: probe end
+         systemd-1     [000] ....     0.957462: bcm2835_sdhost_probe: probe start
+     kworker/0:1-30    [000] ....     2.409506: bcm2835_mmc_probe: probe start
+     kworker/0:1-30    [000] ....     2.449859: bcm2835_sdhost_probe: probe start
+     kworker/0:1-30    [000] ....     2.461042: bcm2835_sdhost_reset_internal: write:SDVDD:00000000
+     kworker/0:1-30    [000] ....     2.461047: bcm2835_sdhost_reset_internal: write:SDCMD:00000000
+     kworker/0:1-30    [000] ....     2.461048: bcm2835_sdhost_reset_internal: write:SDARG:00000000
+     kworker/0:1-30    [000] ....     2.461049: bcm2835_sdhost_reset_internal: write:SDTOUT:00f00000
+     kworker/0:1-30    [000] ....     2.461050: bcm2835_sdhost_reset_internal: write:SDCDIV:00000000
+     kworker/0:1-30    [000] ....     2.461051: bcm2835_sdhost_reset_internal: write:SDHSTS:000007f8
+     kworker/0:1-30    [000] ....     2.461053: bcm2835_sdhost_reset_internal: write:SDHCFG:00000000
+     kworker/0:1-30    [000] ....     2.461054: bcm2835_sdhost_reset_internal: write:SDHBCT:00000000
+     kworker/0:1-30    [000] ....     2.461055: bcm2835_sdhost_reset_internal: write:SDHBLC:00000000
+     kworker/0:1-30    [000] ....     2.461057: bcm2835_sdhost_reset_internal: read:SDEDM:0001080f
+     kworker/0:1-30    [000] ....     2.461058: bcm2835_sdhost_reset_internal: write:SDEDM:0001080f
+     kworker/0:1-30    [000] ....     2.472067: bcm2835_sdhost_reset_internal: write:SDVDD:00000001
+     kworker/0:1-30    [000] ....     2.489022: bcm2835_sdhost_reset_internal: write:SDHCFG:00000400
+     kworker/0:1-30    [000] ....     2.489024: bcm2835_sdhost_reset_internal: write:SDCDIV:000007ff
+     kworker/0:1-30    [000] d..1     2.498769: bcm2835_sdhost_set_ios: write:SDHCFG:0000040a
+     kworker/0:1-30    [000] d..1     2.507582: bcm2835_sdhost_set_clock: write:SDTOUT:0000ee4d
+     kworker/0:1-30    [000] d..1     2.528705: bcm2835_sdhost_set_ios: write:SDHCFG:0000040a
+     kworker/0:1-30    [000] d..1     2.537105: bcm2835_sdhost_set_clock: write:SDTOUT:00030d40
+     kworker/0:1-30    [000] ....     2.556303: bcm2835_sdhost_probe: probe end

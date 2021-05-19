@@ -1,0 +1,30 @@
+# tracer: nop
+#
+#                              _-----=> irqs-off
+#                             / _----=> need-resched
+#                            | / _---=> hardirq/softirq
+#                            || / _--=> preempt-depth
+#                            ||| /     delay
+#           TASK-PID   CPU#  ||||    TIMESTAMP  FUNCTION
+#              | |       |   ||||       |         |
+         systemd-1     [001] ....     0.957030: bcm2835_sdhost_probe: probe start
+     kworker/1:1-32    [001] ....     2.330749: bcm2835_mmc_probe: probe start
+     kworker/1:1-32    [001] ....     2.380818: bcm2835_sdhost_probe: probe start
+     kworker/1:1-32    [001] ....     2.423703: bcm2835_sdhost_reset_internal: write:SDVDD:00000000
+     kworker/1:1-32    [001] ....     2.423708: bcm2835_sdhost_reset_internal: write:SDCMD:00000000
+     kworker/1:1-32    [001] ....     2.423709: bcm2835_sdhost_reset_internal: write:SDARG:00000000
+     kworker/1:1-32    [001] ....     2.423710: bcm2835_sdhost_reset_internal: write:SDTOUT:00f00000
+     kworker/1:1-32    [001] ....     2.423712: bcm2835_sdhost_reset_internal: write:SDCDIV:00000000
+     kworker/1:1-32    [001] ....     2.423713: bcm2835_sdhost_reset_internal: write:SDHSTS:000007f8
+     kworker/1:1-32    [001] ....     2.423714: bcm2835_sdhost_reset_internal: write:SDHCFG:00000000
+     kworker/1:1-32    [001] ....     2.423715: bcm2835_sdhost_reset_internal: write:SDHBCT:00000000
+     kworker/1:1-32    [001] ....     2.423716: bcm2835_sdhost_reset_internal: write:SDHBLC:00000000
+     kworker/1:1-32    [001] ....     2.423718: bcm2835_sdhost_reset_internal: read:SDEDM:0001080f
+     kworker/1:1-32    [001] ....     2.423719: bcm2835_sdhost_reset_internal: write:SDEDM:0001080f
+     kworker/1:1-32    [001] ....     2.433722: bcm2835_sdhost_reset_internal: write:SDVDD:00000001
+     kworker/1:1-32    [001] ....     2.451037: bcm2835_sdhost_reset_internal: write:SDHCFG:00000400
+     kworker/1:1-32    [001] ....     2.451039: bcm2835_sdhost_reset_internal: write:SDCDIV:000007ff
+     kworker/1:1-32    [001] d..1     2.460583: bcm2835_sdhost_set_ios: write:SDHCFG:0000040a
+     kworker/1:1-32    [001] d..1     2.469590: bcm2835_sdhost_set_clock: write:SDTOUT:0000ee4d
+     kworker/1:1-32    [001] d..1     2.490675: bcm2835_sdhost_set_ios: write:SDHCFG:0000040a
+     kworker/1:1-32    [001] d..1     2.499092: bcm2835_sdhost_set_clock: write:SDTOUT:00030d40

@@ -1,0 +1,141 @@
+# tracer: function
+#
+#                              _-----=> irqs-off
+#                             / _----=> need-resched
+#                            | / _---=> hardirq/softirq
+#                            || / _--=> preempt-depth
+#                            ||| /     delay
+#           TASK-PID   CPU#  ||||    TIMESTAMP  FUNCTION
+#              | |       |   ||||       |         |
+             tee-3063  [003] .... 250517.066098: tracing_mark_write: start dd
+              dd-3064  [002] ...1 250517.070942: mmc_blk_open <-__blkdev_get
+              dd-3064  [002] ...1 250517.070948: mmc_blk_get.isra.0 <-mmc_blk_open
+              dd-3064  [002] ...1 250517.071071: mmc_init_request <-alloc_request_size
+    kworker/2:1H-101   [002] d..2 250517.071131: mmc_request_fn <-__blk_run_queue
+         mmcqd/0-339   [003] d..2 250517.071156: mmc_prep_request <-blk_peek_request
+         mmcqd/0-339   [003] d..2 250517.071158: mmc_access_rpmb <-mmc_prep_request
+         mmcqd/0-339   [003] ...1 250517.071161: mmc_blk_issue_rq <-mmc_queue_thread
+         mmcqd/0-339   [003] ...1 250517.071163: mmc_get_card <-mmc_blk_issue_rq
+         mmcqd/0-339   [003] ...1 250517.071174: mmc_blk_issue_rw_rq <-mmc_blk_issue_rq
+         mmcqd/0-339   [003] ...1 250517.071176: mmc_blk_rw_rq_prep <-mmc_blk_issue_rw_rq
+         mmcqd/0-339   [003] ...1 250517.071179: mmc_set_data_timeout <-mmc_blk_rw_rq_prep
+         mmcqd/0-339   [003] ...1 250517.071183: mmc_queue_map_sg <-mmc_blk_rw_rq_prep
+         mmcqd/0-339   [003] ...1 250517.071188: mmc_start_areq <-mmc_blk_issue_rw_rq
+         mmcqd/0-339   [003] ...1 250517.071190: mmc_start_request <-mmc_start_areq
+         mmcqd/0-339   [003] ...1 250517.071192: mmc_retune_hold <-mmc_start_request
+         mmcqd/0-339   [003] ...1 250517.071199: mmc_retune <-__mmc_start_request
+         mmcqd/0-339   [003] .... 250517.071209: mmc_request_start: mmc0: start struct mmc_request[ffffffc037249140]: cmd_opcode=18 cmd_arg=0x800 cmd_flags=0xb5 cmd_retries=0 stop_opcode=12 stop_arg=0x0 stop_flags=0x95 stop_retries=0 sbc_opcode=23 sbc_arg=0x8 sbc_flags=0x15 sbc_retires=0 blocks=8 block_size=512 blk_addr=0 data_flags=0x200 tag=0 can_retune=0 doing_retune=0 retune_now=0 need_retune=0 hold_retune=1 retune_period=0
+         mmcqd/0-339   [003] d..1 250517.071234: bcm2835_sdhost_request: read:SDEDM:00010801
+         mmcqd/0-339   [003] d..1 250517.071240: bcm2835_sdhost_send_command: read:SDCMD:0000000d
+         mmcqd/0-339   [003] d..1 250517.071247: bcm2835_sdhost_send_command: read:SDHSTS:00000000
+         mmcqd/0-339   [003] d..1 250517.071248: bcm2835_sdhost_send_command: write:SDARG:00000008
+         mmcqd/0-339   [003] d..1 250517.071250: bcm2835_sdhost_send_command: write:SDCMD:00008017
+         mmcqd/0-339   [003] d..1 250517.071252: bcm2835_sdhost_finish_command: read:SDCMD:00008017
+         mmcqd/0-339   [003] d..1 250517.071253: bcm2835_sdhost_finish_command: read:SDCMD:00008017
+         mmcqd/0-339   [003] d..1 250517.071255: bcm2835_sdhost_finish_command: read:SDCMD:00000017
+         mmcqd/0-339   [003] d..1 250517.071257: bcm2835_sdhost_finish_command: read:SDRSP0:00000900
+         mmcqd/0-339   [003] d..1 250517.071259: bcm2835_sdhost_send_command: read:SDCMD:00000017
+         mmcqd/0-339   [003] d..1 250517.071260: bcm2835_sdhost_send_command: read:SDHSTS:00000000
+         mmcqd/0-339   [003] d..1 250517.071261: bcm2835_sdhost_send_command: write:SDHCFG:0000040e
+         mmcqd/0-339   [003] d..1 250517.071262: bcm2835_sdhost_send_command: write:SDHBCT:00000200
+         mmcqd/0-339   [003] d..1 250517.071264: bcm2835_sdhost_send_command: write:SDHBLC:00000008
+         mmcqd/0-339   [003] d..1 250517.071265: bcm2835_sdhost_send_command: write:SDARG:00000800
+         mmcqd/0-339   [003] d..1 250517.071266: bcm2835_sdhost_send_command: write:SDCMD:00008052
+         mmcqd/0-339   [003] d..1 250517.071270: bcm2835_sdhost_finish_command: read:SDCMD:00000052
+         mmcqd/0-339   [003] d..1 250517.071271: bcm2835_sdhost_finish_command: read:SDRSP0:00000900
+         mmcqd/0-339   [003] ...1 250517.071276: mmc_blk_issue_rq <-mmc_queue_thread
+         mmcqd/0-339   [003] ...1 250517.071276: mmc_blk_issue_rw_rq <-mmc_blk_issue_rq
+         mmcqd/0-339   [003] ...1 250517.071277: mmc_start_areq <-mmc_blk_issue_rw_rq
+          <idle>-0     [001] d.s2 250517.071821: bcm2835_sdhost_dma_complete: read:SDHSTS:00000001
+          <idle>-0     [001] d.s2 250517.071824: bcm2835_sdhost_dma_complete: read:SDCMD:00000052
+          <idle>-0     [001] d.s2 250517.071826: bcm2835_sdhost_dma_complete: read:SDEDM:00010834
+          <idle>-0     [001] d.s3 250517.071829: bcm2835_sdhost_dma_complete: read:SDEDM:00010834
+          <idle>-0     [001] d.s3 250517.071831: bcm2835_sdhost_dma_complete: read:SDDATA:3d485be8
+          <idle>-0     [001] d.s3 250517.071832: bcm2835_sdhost_dma_complete: read:SDEDM:00010824
+          <idle>-0     [001] d.s3 250517.071833: bcm2835_sdhost_dma_complete: read:SDDATA:8273abd4
+          <idle>-0     [001] d.s3 250517.071835: bcm2835_sdhost_dma_complete: read:SDEDM:00010814
+          <idle>-0     [001] d.s3 250517.071836: bcm2835_sdhost_dma_complete: read:SDDATA:df2c89a6
+          <idle>-0     [001] d.s2 250517.071838: bcm2835_sdhost_finish_data: write:SDHCFG:0000040e
+          <idle>-0     [001] d.s2 250517.071840: bcm2835_sdhost_transfer_complete: read:SDEDM:00010804
+          <idle>-0     [001] d.s2 250517.071841: bcm2835_sdhost_transfer_complete: write:SDEDM:00090804
+          <idle>-0     [001] ..s2 250517.071847: mmc_request_done <-bcm2835_sdhost_tasklet_finish
+          <idle>-0     [001] ..s1 250517.071853: mmc_request_done: mmc0: end struct mmc_request[ffffffc037249140]: cmd_opcode=18 cmd_err=0 cmd_resp=0x900 0x0 0x0 0x0 cmd_retries=0 stop_opcode=12 stop_err=0 stop_resp=0x0 0x0 0x0 0x0 stop_retries=0 sbc_opcode=23 sbc_err=0 sbc_resp=0x900 0x0 0x0 0x0 sbc_retries=0 bytes_xfered=4096 data_err=0 tag=0 can_retune=0 doing_retune=0 retune_now=0 need_retune=0 hold_retune=1 retune_period=0
+          <idle>-0     [001] ..s2 250517.071855: mmc_wait_data_done <-mmc_request_done
+         mmcqd/0-339   [001] ...1 250517.071866: mmc_blk_err_check <-mmc_start_areq
+         mmcqd/0-339   [001] ...1 250517.071868: mmc_retune_release <-mmc_start_areq
+         mmcqd/0-339   [001] d..2 250517.071890: mmc_exit_request <-free_request_size
+         mmcqd/0-339   [001] ...1 250517.071895: mmc_put_card <-mmc_blk_issue_rq
+         mmcqd/0-339   [001] ...1 250517.071896: mmc_release_host <-mmc_put_card
+              dd-3064  [002] ...1 250517.071928: mmc_init_request <-alloc_request_size
+    kworker/2:1H-101   [002] d..2 250517.071953: mmc_request_fn <-__blk_run_queue
+         mmcqd/0-339   [001] d..2 250517.071961: mmc_prep_request <-blk_peek_request
+         mmcqd/0-339   [001] d..2 250517.071962: mmc_access_rpmb <-mmc_prep_request
+         mmcqd/0-339   [001] ...1 250517.071963: mmc_blk_issue_rq <-mmc_queue_thread
+         mmcqd/0-339   [001] ...1 250517.071964: mmc_get_card <-mmc_blk_issue_rq
+         mmcqd/0-339   [001] ...1 250517.071967: mmc_blk_issue_rw_rq <-mmc_blk_issue_rq
+         mmcqd/0-339   [001] ...1 250517.071968: mmc_blk_rw_rq_prep <-mmc_blk_issue_rw_rq
+         mmcqd/0-339   [001] ...1 250517.071969: mmc_set_data_timeout <-mmc_blk_rw_rq_prep
+         mmcqd/0-339   [001] ...1 250517.071970: mmc_queue_map_sg <-mmc_blk_rw_rq_prep
+         mmcqd/0-339   [001] ...1 250517.071972: mmc_start_areq <-mmc_blk_issue_rw_rq
+         mmcqd/0-339   [001] ...1 250517.071973: mmc_start_request <-mmc_start_areq
+         mmcqd/0-339   [001] ...1 250517.071974: mmc_retune_hold <-mmc_start_request
+         mmcqd/0-339   [001] ...1 250517.071975: mmc_retune <-__mmc_start_request
+         mmcqd/0-339   [001] .... 250517.071977: mmc_request_start: mmc0: start struct mmc_request[ffffffc037248540]: cmd_opcode=25 cmd_arg=0x800 cmd_flags=0xb5 cmd_retries=0 stop_opcode=12 stop_arg=0x0 stop_flags=0x49d stop_retries=0 sbc_opcode=23 sbc_arg=0x8 sbc_flags=0x15 sbc_retires=0 blocks=8 block_size=512 blk_addr=0 data_flags=0x100 tag=0 can_retune=0 doing_retune=0 retune_now=0 need_retune=0 hold_retune=1 retune_period=0
+         mmcqd/0-339   [001] d..1 250517.071985: bcm2835_sdhost_request: read:SDEDM:00010801
+         mmcqd/0-339   [001] d..1 250517.071987: bcm2835_sdhost_send_command: read:SDCMD:00000052
+         mmcqd/0-339   [001] d..1 250517.071989: bcm2835_sdhost_send_command: read:SDHSTS:00000000
+         mmcqd/0-339   [001] d..1 250517.071990: bcm2835_sdhost_send_command: write:SDHCFG:0000040e
+         mmcqd/0-339   [001] d..1 250517.071992: bcm2835_sdhost_send_command: write:SDHBCT:00000200
+         mmcqd/0-339   [001] d..1 250517.071993: bcm2835_sdhost_send_command: write:SDHBLC:00000008
+         mmcqd/0-339   [001] d..1 250517.071994: bcm2835_sdhost_send_command: write:SDARG:00000800
+         mmcqd/0-339   [001] d..1 250517.071995: bcm2835_sdhost_send_command: write:SDCMD:00008099
+         mmcqd/0-339   [001] d..1 250517.071998: bcm2835_sdhost_finish_command: read:SDCMD:00008099
+         mmcqd/0-339   [001] d..1 250517.071999: bcm2835_sdhost_finish_command: read:SDCMD:00000099
+         mmcqd/0-339   [001] d..1 250517.072000: bcm2835_sdhost_finish_command: read:SDRSP0:00000900
+         mmcqd/0-339   [001] ...1 250517.072003: mmc_blk_issue_rq <-mmc_queue_thread
+         mmcqd/0-339   [001] ...1 250517.072004: mmc_blk_issue_rw_rq <-mmc_blk_issue_rq
+         mmcqd/0-339   [001] ...1 250517.072005: mmc_start_areq <-mmc_blk_issue_rw_rq
+          <idle>-0     [002] d.s2 250517.072293: bcm2835_sdhost_dma_complete: read:SDHSTS:00000000
+          <idle>-0     [002] d.s2 250517.072295: bcm2835_sdhost_dma_complete: read:SDCMD:00000099
+          <idle>-0     [002] d.s2 250517.072296: bcm2835_sdhost_dma_complete: read:SDEDM:00010801
+          <idle>-0     [002] d.s2 250517.072299: bcm2835_sdhost_finish_data: write:SDHCFG:0000040e
+          <idle>-0     [002] d.s2 250517.072301: bcm2835_sdhost_send_command: read:SDCMD:00000099
+          <idle>-0     [002] d.s2 250517.072302: bcm2835_sdhost_send_command: read:SDHSTS:00000000
+          <idle>-0     [002] d.s2 250517.072303: bcm2835_sdhost_send_command: write:SDARG:00000000
+          <idle>-0     [002] d.s2 250517.072304: bcm2835_sdhost_send_command: write:SDCMD:0000880c
+          <idle>-0     [000] d.h2 250517.073881: bcm2835_sdhost_irq: read:SDHSTS:00000400
+          <idle>-0     [000] d.h2 250517.073884: bcm2835_sdhost_irq: write:SDHSTS:00000701
+          <idle>-0     [000] d.h2 250517.073886: bcm2835_sdhost_finish_command: read:SDCMD:0000080c
+          <idle>-0     [000] d.h2 250517.073887: bcm2835_sdhost_finish_command: read:SDRSP0:00000c00
+          <idle>-0     [000] d.h2 250517.073890: bcm2835_sdhost_irq: read:SDHSTS:00000000
+          <idle>-0     [000] ..s2 250517.073894: mmc_request_done <-bcm2835_sdhost_tasklet_finish
+          <idle>-0     [000] ..s1 250517.073897: mmc_request_done: mmc0: end struct mmc_request[ffffffc037248540]: cmd_opcode=25 cmd_err=0 cmd_resp=0x900 0x0 0x0 0x0 cmd_retries=0 stop_opcode=12 stop_err=0 stop_resp=0xc00 0x0 0x0 0x0 stop_retries=0 sbc_opcode=23 sbc_err=0 sbc_resp=0x0 0x0 0x0 0x0 sbc_retries=0 bytes_xfered=4096 data_err=0 tag=0 can_retune=0 doing_retune=0 retune_now=0 need_retune=0 hold_retune=1 retune_period=0
+          <idle>-0     [000] ..s2 250517.073899: mmc_wait_data_done <-mmc_request_done
+         mmcqd/0-339   [001] ...1 250517.073910: mmc_blk_err_check <-mmc_start_areq
+         mmcqd/0-339   [001] ...1 250517.073912: mmc_wait_for_cmd <-__mmc_send_status
+         mmcqd/0-339   [001] ...1 250517.073914: mmc_wait_for_req <-mmc_wait_for_cmd
+         mmcqd/0-339   [001] ...1 250517.073915: mmc_start_request <-mmc_wait_for_req
+         mmcqd/0-339   [001] ...1 250517.073915: mmc_retune_hold <-mmc_start_request
+         mmcqd/0-339   [001] ...1 250517.073917: mmc_retune <-__mmc_start_request
+         mmcqd/0-339   [001] .... 250517.073919: mmc_request_start: mmc0: start struct mmc_request[ffffff80094fba60]: cmd_opcode=13 cmd_arg=0x59b40000 cmd_flags=0x195 cmd_retries=5 stop_opcode=0 stop_arg=0x0 stop_flags=0x0 stop_retries=0 sbc_opcode=0 sbc_arg=0x0 sbc_flags=0x0 sbc_retires=0 blocks=0 block_size=0 blk_addr=0 data_flags=0x0 tag=0 can_retune=0 doing_retune=0 retune_now=0 need_retune=0 hold_retune=2 retune_period=0
+         mmcqd/0-339   [001] d..1 250517.073921: bcm2835_sdhost_request: read:SDEDM:00010801
+         mmcqd/0-339   [001] d..1 250517.073923: bcm2835_sdhost_send_command: read:SDCMD:0000080c
+         mmcqd/0-339   [001] d..1 250517.073925: bcm2835_sdhost_send_command: read:SDHSTS:00000000
+         mmcqd/0-339   [001] d..1 250517.073926: bcm2835_sdhost_send_command: write:SDARG:59b40000
+         mmcqd/0-339   [001] d..1 250517.073927: bcm2835_sdhost_send_command: write:SDCMD:0000800d
+         mmcqd/0-339   [001] d..1 250517.073929: bcm2835_sdhost_finish_command: read:SDCMD:0000800d
+         mmcqd/0-339   [001] d..1 250517.073930: bcm2835_sdhost_finish_command: read:SDCMD:0000800d
+         mmcqd/0-339   [001] d..1 250517.073931: bcm2835_sdhost_finish_command: read:SDCMD:0000000d
+         mmcqd/0-339   [001] d..1 250517.073932: bcm2835_sdhost_finish_command: read:SDRSP0:00000900
+         mmcqd/0-339   [001] ...1 250517.073939: mmc_wait_for_req_done <-mmc_wait_for_req
+     ksoftirqd/1-15    [001] ..s1 250517.073950: mmc_request_done <-bcm2835_sdhost_tasklet_finish
+     ksoftirqd/1-15    [001] ..s. 250517.073952: mmc_request_done: mmc0: end struct mmc_request[ffffff80094fba60]: cmd_opcode=13 cmd_err=0 cmd_resp=0x900 0x0 0x0 0x0 cmd_retries=5 stop_opcode=0 stop_err=0 stop_resp=0x0 0x0 0x0 0x0 stop_retries=0 sbc_opcode=0 sbc_err=0 sbc_resp=0x0 0x0 0x0 0x0 sbc_retries=0 bytes_xfered=0 data_err=0 tag=0 can_retune=0 doing_retune=0 retune_now=0 need_retune=0 hold_retune=2 retune_period=0
+     ksoftirqd/1-15    [001] ..s1 250517.073954: mmc_wait_done <-mmc_request_done
+         mmcqd/0-339   [002] ...1 250517.073963: mmc_retune_release <-mmc_wait_for_req_done
+         mmcqd/0-339   [002] ...1 250517.073964: mmc_retune_release <-mmc_start_areq
+         mmcqd/0-339   [002] d..2 250517.073984: mmc_exit_request <-free_request_size
+         mmcqd/0-339   [002] ...1 250517.073986: mmc_put_card <-mmc_blk_issue_rq
+         mmcqd/0-339   [002] ...1 250517.073987: mmc_release_host <-mmc_put_card
+              dd-3064  [003] ...1 250517.074047: mmc_blk_release <-__blkdev_put
+              dd-3064  [003] ...1 250517.074049: mmc_blk_put <-mmc_blk_release
+             tee-3066  [000] .... 250517.079858: tracing_mark_write: end dd
